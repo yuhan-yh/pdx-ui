@@ -1,13 +1,23 @@
 {
   "name": "pdx-ui-weather",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "private": false,
+  "version": "0.0.1",
+  "keywords": [ "pdx", "weather", "pdx-ui", "pdx-ui-weather"],
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --force --host",
     "build": "vite build",
     "preview": "vite preview"
   },
+  "files": ["lib"],
+  "main": "lib/pdx-ui.umd.js", 
+  "module": "lib/pdx-ui.es.js", 
+  "exports": {
+    "./lib/style.css":"./lib/style.css",
+    ".":{
+      "import" : "./lib/pdx-ui.es.js",
+      "require": "./lib/pdx-ui.umd.js"
+    }
+  }, 
   "dependencies": {
     "vue": "^3.2.37"
   },

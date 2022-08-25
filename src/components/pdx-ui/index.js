@@ -1,24 +1,24 @@
 /*
  * @Author: your name
  * @Date: 2022-08-25 10:47:23
- * @LastEditTime: 2022-08-25 10:48:28
+ * @LastEditTime: 2022-08-25 15:20:55
  * @LastEditors: yuhan
  * @Description: 
  * @FilePath: \pdx-ui-weather\src\components\pdx-ui\index.js
  */
-import testImg from "./weather/test.vue";
+import Weather from './weather/index.vue';
 
-// 按需引入
-export { testImg };
+//按需引入
+export { Weather };
 
-const component = [testImg];
+const components = [Weather];
 
-const PdxUI = {
-	install(App) {
-		component.forEach((item) => {
-			App.component(item.name, testImg);
-		});
-	},
+const install = (App) => {
+	components.forEach((item) => {
+		App.component(item.__name, item);
+	});
 };
 
-export default PdxUI;
+export default {
+	install,
+};
